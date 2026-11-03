@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小学数学测试题 - 100以内加减法</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- 开始页 -->
+    <section id="page-start" class="page active">
+      <div class="quiz-card">
+        <h1 class="title">🎯 小学数学测试题</h1>
+        <p class="subtitle">100以内加减法 · 每次20题 · 挑战最短用时</p>
+
+        <div class="form-group">
+          <label for="player-name">输入你的名字</label>
+          <input type="text" id="player-name" maxlength="10" placeholder="例如：小明" />
+        </div>
+
+        <button id="btn-start" class="btn btn-primary">开始挑战</button>
+
+        <div class="rules">
+          <h3>📋 规则</h3>
+          <ul>
+            <li>共 <strong>20 道</strong>加减法题（100以内）</li>
+            <li>输入答案后按 <strong>回车</strong> 自动下一题</li>
+            <li>答完自动结算用时，越快越好！</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 答题页 -->
+    <section id="page-quiz" class="page">
+      <div class="quiz-card quiz-game">
+        <div class="quiz-top">
+          <span class="badge" id="progress">第 1 / 20 题</span>
+          <span class="timer" id="timer">⏱ 0.0秒</span>
+        </div>
+
+        <div class="question" id="question">35 + 27 = ?</div>
+
+        <div class="answer-row">
+          <input type="number" id="answer-input" placeholder="?" autocomplete="off" />
+          <button id="btn-next" class="btn btn-primary">下一题</button>
+        </div>
+
+        <div class="quiz-stats">
+          <span>已答对：<strong id="correct-count">0</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 结算页 -->
+    <section id="page-result" class="page">
+      <div class="quiz-card">
+        <h1 class="title" id="result-title">🎉 完成！</h1>
+        <div class="result-stats">
+          <div class="stat-item">
+            <div class="stat-num" id="final-time">0.0秒</div>
+            <div class="stat-label">总用时</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="final-score">0 / 20</div>
+            <div class="stat-label">答对题数</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="final-accuracy">0%</div>
+            <div class="stat-label">正确率</div>
+          </div>
+        </div>
+
+        <div id="rank-badge" class="rank-badge hidden">🏆 新纪录！你登上了排行榜！</div>
+
+        <button id="btn-retry" class="btn btn-primary">再来一次</button>
+        <button id="btn-show-rank" class="btn btn-ghost">查看排行榜</button>
+      </div>
+    </section>
+
+    <!-- 排行榜页 -->
+    <section id="page-rank" class="page">
+      <div class="quiz-card">
+        <h1 class="title">🏆 排行榜</h1>
+        <p class="subtitle">用时最短的前 10 名</p>
+        <ol id="rank-list" class="rank-list"></ol>
+        <button id="btn-back" class="btn btn-primary">返回首页</button>
+      </div>
+    </section>
+
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

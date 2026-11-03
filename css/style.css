@@ -1,0 +1,203 @@
+/* ===== 全局 ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #333;
+}
+
+#app { width: 100%; max-width: 520px; }
+
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.3s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== 卡片 ===== */
+.quiz-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  padding: 36px 28px;
+}
+
+.title {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 6px;
+  color: #2d3748;
+}
+
+.subtitle {
+  text-align: center;
+  color: #718096;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+/* ===== 表单 ===== */
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #4a5568;
+}
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus { border-color: #667eea; }
+
+/* ===== 按钮 ===== */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 12px;
+}
+.btn-primary { background: #667eea; color: #fff; }
+.btn-primary:hover { background: #5a67d8; transform: translateY(-1px); }
+.btn-ghost { background: #edf2f7; color: #4a5568; }
+.btn-ghost:hover { background: #e2e8f0; }
+
+/* ===== 规则 ===== */
+.rules {
+  margin-top: 24px;
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 16px;
+}
+.rules h3 { font-size: 15px; margin-bottom: 8px; color: #4a5568; }
+.rules ul { margin-left: 18px; line-height: 1.9; font-size: 14px; color: #4a5568; }
+
+/* ===== 答题页 ===== */
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.badge {
+  background: #edf2f7;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a5568;
+}
+.timer {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e53e3e;
+}
+
+.question {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 20px 0 28px;
+  color: #2d3748;
+  letter-spacing: 2px;
+}
+
+.answer-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.answer-row input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 22px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.answer-row input:focus { border-color: #667eea; }
+.answer-row .btn { width: auto; margin-bottom: 0; padding: 12px 20px; }
+
+.quiz-stats {
+  text-align: center;
+  font-size: 14px;
+  color: #718096;
+}
+.quiz-stats strong { color: #48bb78; }
+
+/* 答对/答错闪烁 */
+.question.correct { color: #48bb78; }
+.question.wrong { color: #e53e3e; }
+
+/* ===== 结算页 ===== */
+.result-stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 24px 0;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-size: 24px;
+  font-weight: 700;
+  color: #667eea;
+}
+.stat-label { font-size: 13px; color: #718096; margin-top: 4px; }
+
+.rank-badge {
+  background: linear-gradient(135deg, #f6ad55, #ed8936);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.hidden { display: none; }
+
+/* ===== 排行榜 ===== */
+.rank-list {
+  list-style: none;
+  margin: 20px 0;
+}
+.rank-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background: #f7fafc;
+  font-size: 15px;
+}
+.rank-list li:nth-child(1) { background: #fef3c7; }
+.rank-list li:nth-child(2) { background: #e2e8f0; }
+.rank-list li:nth-child(3) { background: #fde8d7; }
+.rank-list .rank-name { font-weight: 600; }
+.rank-list .rank-time { color: #e53e3e; font-weight: 700; }
+.rank-empty {
+  text-align: center;
+  color: #a0aec0;
+  padding: 30px 0;
+}
